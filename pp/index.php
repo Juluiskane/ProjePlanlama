@@ -5,7 +5,9 @@ $sorgu = $db->prepare("SELECT*FROM site_settings ");
 $sorgu->execute();
 
 $bilgiyi_cek=$sorgu->fetch(PDO::FETCH_ASSOC);
-
+$fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
+    $fetch_skill->execute();
+    $fetch_s=$fetch_skill->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +77,7 @@ $bilgiyi_cek=$sorgu->fetch(PDO::FETCH_ASSOC);
 
                         <li class="page-scroll"><a href="#hero">GİRİŞ</a></li>
                         <li class="page-scroll"><a href="#about">HAKKIMDA</a></li>
-                        <li class="page-scroll"><a href="#skills">YETENEKLER</a></li>
+                        <li class="page-scroll"><a href="#skills"><?php echo $fetch_s['skill_title'] ?></a></li>
                         <li class="page-scroll"><a href="#contact">İLETİŞİM</a></li>
                         
                     </ul><!-- /.navbar-nav -->
@@ -120,53 +122,52 @@ $bilgiyi_cek=$sorgu->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </section><!-- /.secton-about -->
-
         <section class="site-section section-skills" id="skills">
             <div class="container">
                 <div class="text-center">
-                    <h3>YETENEKLER</h3>
+                    <h3><?php echo $fetch_s['skill_title'] ?></h3>
                     <img src="assets/img/lines.svg" class="img-lines" alt="lines">
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="skill">
-                            <h4>Html/css</h4>
+                            <h4><?php echo $fetch_s['first_skill'] ?></h4>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-transitiongoal="1"></div><!-- /.progress-bar -->
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="<?php echo $fetch_s['first_counter'] ?>"></div><!-- /.progress-bar -->
                             </div><!-- /.progress -->
                         </div><!-- /.skill -->
                         <div class="skill">
-                            <h4>C</h4>
+                            <h4><?php echo $fetch_s['second_skill'] ?></h4>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-transitiongoal="10"></div><!-- /.progress-bar -->
-                            </div><!-- /.progress -->
-                        </div><!-- /.skill -->
-                    </div>
-                    <div class="col-md-4">
-                        <div class="skill">
-                            <h4>Javascript</h4>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-transitiongoal="1"></div><!-- /.progress-bar -->
-                            </div><!-- /.progress -->
-                        </div><!-- /.skill -->
-                        <div class="skill">
-                            <h4>Problem  çözme</h4>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-transitiongoal="60"></div><!-- /.progress-bar -->
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="<?php echo $fetch_s['second_counter'] ?>"></div><!-- /.progress-bar -->
                             </div><!-- /.progress -->
                         </div><!-- /.skill -->
                     </div>
                     <div class="col-md-4">
                         <div class="skill">
-                            <h4>Php</h4>
+                            <h4><?php echo $fetch_s['third_skill'] ?></h4>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-transitiongoal="1"></div><!-- /.progress-bar -->
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="<?php echo $fetch_s['third_counter'] ?>"></div><!-- /.progress-bar -->
                             </div><!-- /.progress -->
                         </div><!-- /.skill -->
                         <div class="skill">
-                            <h4>Sabır</h4>
+                            <h4><?php echo $fetch_s['fourth_skill'] ?></h4>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" data-transitiongoal="85"></div><!-- /.progress-bar -->
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="<?php echo $fetch_s['fourth_counter'] ?>"></div><!-- /.progress-bar -->
+                            </div><!-- /.progress -->
+                        </div><!-- /.skill -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="skill">
+                            <h4><?php echo $fetch_s['fifth_skill'] ?></h4>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="<?php echo $fetch_s['fifth_counter'] ?>"></div><!-- /.progress-bar -->
+                            </div><!-- /.progress -->
+                        </div><!-- /.skill -->
+                        <div class="skill">
+                            <h4><?php echo $fetch_s['sixth_skill'] ?></h4>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" data-transitiongoal="<?php echo $fetch_s['sixth_counter'] ?>"></div><!-- /.progress-bar -->
                             </div><!-- /.progress -->
                         </div><!-- /.skill -->
                     </div>

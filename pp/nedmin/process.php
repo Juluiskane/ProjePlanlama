@@ -68,3 +68,82 @@ if (isset($_POST['login'])) {
     }
     
 }
+
+//?update && insert
+// skill insert
+if(isset($_POST['insert_skills'])){
+    $skill_title = $_POST['skill_title'];
+    $first_skill = $_POST['first_skill'];
+    $second_skill = $_POST['second_skill'];
+    $third_skill = $_POST['third_skill'];
+    $fourth_skill = $_POST['fourth_skill'];
+    $fifth_skill = $_POST['fifth_skill'];
+    $sixth_skill = $_POST['sixth_skill'];
+    $first_counter = $_POST['first_counter'];
+    $second_counter = $_POST['second_counter'];
+    $third_counter = $_POST['third_counter'];
+    $fourth_counter = $_POST['fourth_counter'];
+    $fifth_counter = $_POST['fifth_counter'];
+    $sixth_counter = $_POST['sixth_counter'];
+
+    $insert_skill = $db -> prepare("INSERT INTO skills SET
+    skill_title='$skill_title',
+    first_skill ='$first_skill',
+    second_skill ='$second_skill',
+    third_skill ='$third_skill',
+    fourth_skill ='$fourth_skill',
+    fifth_skill ='$fifth_skill',
+    sixth_skill ='$sixth_skill',
+    first_counter ='$first_counter',
+    second_counter ='$second_counter',
+    third_counter ='$third_counter',
+    fourth_counter ='$fourth_counter',
+    fifth_counter ='$fifth_counter',
+    sixth_counter ='$sixth_counter'
+    ");
+    $insert=$insert_skill -> execute();
+    if($insert){
+        header("Location: skill.php?insert=ok");
+    }else{
+        header("Location: skill.php?insert=no");
+    }
+}
+
+//skill update
+if(isset($_POST['update_skills'])){
+    $skill_title = $_POST['skill_title'];
+    $first_skill = $_POST['first_skill'];
+    $second_skill = $_POST['second_skill'];
+    $third_skill = $_POST['third_skill'];
+    $fourth_skill = $_POST['fourth_skill'];
+    $fifth_skill = $_POST['fifth_skill'];
+    $sixth_skill = $_POST['sixth_skill'];
+    $first_counter = $_POST['first_counter'];
+    $second_counter = $_POST['second_counter'];
+    $third_counter = $_POST['third_counter'];
+    $fourth_counter = $_POST['fourth_counter'];
+    $fifth_counter = $_POST['fifth_counter'];
+    $sixth_counter = $_POST['sixth_counter'];
+
+    $update_skill = $db -> prepare("UPDATE skills SET
+        skill_title='$skill_title',
+        first_skill ='$first_skill',
+        second_skill ='$second_skill',
+        third_skill ='$third_skill',
+        fourth_skill ='$fourth_skill',
+        fifth_skill ='$fifth_skill',
+        sixth_skill ='$sixth_skill',
+        first_counter ='$first_counter',
+        second_counter ='$second_counter',
+        third_counter ='$third_counter',
+        fourth_counter ='$fourth_counter',
+        fifth_counter ='$fifth_counter',
+        sixth_counter ='$sixth_counter' WHERE skill_id=1     
+    ");
+    $update=$update_skill -> execute();
+    if($update){
+        header("Location: skill.php?update=ok");
+    }else{
+        header("Location: skill.php?update=no");
+    }
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 15 Nis 2021, 18:10:37
+-- Üretim Zamanı: 19 Nis 2021, 23:50:05
 -- Sunucu sürümü: 10.4.17-MariaDB
 -- PHP Sürümü: 8.0.0
 
@@ -34,6 +34,13 @@ CREATE TABLE `about_me` (
   `cv` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Tablo döküm verisi `about_me`
+--
+
+INSERT INTO `about_me` (`about_id`, `about_title`, `content`, `cv`) VALUES
+(1, 'Hakkımda', 'İsmim Harun Altun.19 yaşındayım.İnönü Üniversitesinde eğitim görmeye devam ediyorum.Müzik dinlemeyi,oyun oynamayı ve yüzmeyi severim.', '');
+
 -- --------------------------------------------------------
 
 --
@@ -43,7 +50,7 @@ CREATE TABLE `about_me` (
 CREATE TABLE `contact` (
   `contact_id` int(11) NOT NULL,
   `contact_title` varchar(50) NOT NULL,
-  `location` varchar(250) NOT NULL,
+  `location` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `gsm` int(11) NOT NULL,
   `twitter` varchar(250) NOT NULL,
@@ -51,6 +58,13 @@ CREATE TABLE `contact` (
   `github` varchar(250) NOT NULL,
   `linkedin` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Tablo döküm verisi `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `contact_title`, `location`, `email`, `gsm`, `twitter`, `instagram`, `github`, `linkedin`) VALUES
+(1, 'İLETİŞİM', 'Küçükçekmece,İstanbul', 'hrnaltun44@gmail.com', 0, '', 'https://www.instagram.com/harunamabikmis/', 'https://github.com/Juluiskane', 'https://www.linkedin.com/in/harun-altun-2482a916a/');
 
 -- --------------------------------------------------------
 
@@ -93,6 +107,13 @@ CREATE TABLE `skills` (
   `fifth_counter` varchar(10) NOT NULL,
   `sixth_counter` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Tablo döküm verisi `skills`
+--
+
+INSERT INTO `skills` (`skill_id`, `skill_title`, `first_skill`, `second_skill`, `third_skill`, `fourth_skill`, `fifth_skill`, `sixth_skill`, `first_counter`, `second_counter`, `third_counter`, `fourth_counter`, `fifth_counter`, `sixth_counter`) VALUES
+(1, 'Yetenekler', 'Html/Css', 'C', 'Javascript', 'Problem  çözme', 'Php', 'Sabır', '1', '10', '1', '65', '1', '85');
 
 -- --------------------------------------------------------
 
@@ -156,13 +177,13 @@ ALTER TABLE `user`
 -- Tablo için AUTO_INCREMENT değeri `about_me`
 --
 ALTER TABLE `about_me`
-  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `site_settings`
@@ -174,7 +195,7 @@ ALTER TABLE `site_settings`
 -- Tablo için AUTO_INCREMENT değeri `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `user`
