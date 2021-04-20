@@ -1,13 +1,21 @@
 <?php
 include './nedmin/connect.php';
+    $fetch_settings = $db ->prepare("SELECT * FROM site_settings WHERE settings_id=1");
+    $fetch_settings->execute();
+    $fetch_set=$fetch_settings->fetch(PDO::FETCH_ASSOC);
 
-$sorgu = $db->prepare("SELECT*FROM site_settings ");
-$sorgu->execute();
 
-$bilgiyi_cek=$sorgu->fetch(PDO::FETCH_ASSOC);
-$fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
+    $fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
     $fetch_skill->execute();
     $fetch_s=$fetch_skill->fetch(PDO::FETCH_ASSOC);
+
+    $fetch_about = $db ->prepare("SELECT * FROM about_me WHERE about_id=1");
+    $fetch_about->execute();
+    $fetch_a=$fetch_about->fetch(PDO::FETCH_ASSOC);
+
+    $fetch_contact = $db ->prepare("SELECT * FROM contact WHERE contact_id=1");
+    $fetch_contact->execute();
+    $fetch_c=$fetch_contact->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +27,7 @@ $fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><?php echo $bilgiyi_cek['site_title']; ?> </title>
+    <title><?php echo $fetch_set['site_title']; ?> </title>
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -76,9 +84,9 @@ $fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
                     <ul class="nav navbar-nav navbar-right">
 
                         <li class="page-scroll"><a href="#hero">GİRİŞ</a></li>
-                        <li class="page-scroll"><a href="#about">HAKKIMDA</a></li>
+                        <li class="page-scroll"><a href="#about"><?php echo $fetch_a['about_title'] ?></a></li>
                         <li class="page-scroll"><a href="#skills"><?php echo $fetch_s['skill_title'] ?></a></li>
-                        <li class="page-scroll"><a href="#contact">İLETİŞİM</a></li>
+                        <li class="page-scroll"><a href="#contact"><?php echo $fetch_c['contact_title'] ?></a></li>
                         
                     </ul><!-- /.navbar-nav -->
 
@@ -93,7 +101,7 @@ $fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
             <div class="row">
 
                 <div class="col-md-6">
-                    <h1>HARUN ALTUN</h1>
+                    <h1><?php echo $fetch_set['namee']; ?></h1>
                     <div class="page-scroll">
                         <a href="#contact" class="btn btn-fill ">MESAJ GÖNDER</a>
 
@@ -114,10 +122,10 @@ $fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <h2>HAKKIMDA</h2>
+                        <h2><?php echo $fetch_a['about_title'] ?></h2>
                         <img src="assets/img/lines.svg" class="img-lines" alt="lines">
-                        <p>İsmim Harun Altun.19 yaşındayım.İnönü Üniversitesinde  eğitim görmeye devam ediyorum.Müzik dinlemeyi,oyun oynamayı ve yüzmeyi severim. </p>
-                        <a href="http://www.grad.illinois.edu/sites/default/files/pdfs/cvsamples.pdf" class="btn btn-fill" target="_blank" download>CV İNDİR</a>
+                        <p><?php echo $fetch_a['content'] ?> </p>
+                        <a href="<?php echo $fetch_a['cv'] ?>" class="btn btn-fill" target="_blank" download>CV İNDİR</a>
                     </div>
                 </div>
             </div>
@@ -177,7 +185,7 @@ $fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
         <section id="contact" class="site-section section-form text-center">
             <div class="container">
 
-                <h3>İLETİŞİM</h3>
+                <h3><?php echo $fetch_c['contact_title'] ?></h3>
                 <img src="assets/img/lines.svg" class="img-lines" alt="lines">
                 <form>
                     <div class="row">
@@ -196,24 +204,24 @@ $fetch_skill = $db ->prepare("SELECT * FROM skills WHERE skill_id=1");
                     <div class="row">
                         <div class="col-md-4 col-xs-6 md-margin-b-30">
                             <h4>Konum</h4>
-                            <a href="https://www.google.com/maps/place/Küçükçekmece%2Fİstanbul/data=!4m2!3m1!1s0x14caa4102814e62d:0xf17358ce73944614?sa=X&ved=2ahUKEwj0u6zH2MbvAhU_DmMBHTRtBiEQ8gEwPHoECCQQAQ" target="_blank">Küçükçekmece,İstanbul</a>
+                            <a href="<?php echo $fetch_c['location_link'] ?>" target="_blank"><?php echo $fetch_c['locationn'] ?></a>
                         </div>
                         <div class="col-md-4 col-xs-6 md-margin-b-30">
                             <h4>Telefon</h4>
-                            <a href="tel:+905549591150" target="_blank">+90 554 959 11 50</a>
+                            <a href="tel:<?php echo $fetch_c['gsm'] ?>" target="_blank"><?php echo $fetch_c['gsm'] ?></a>
                         </div>
                         <div class="col-md-4 col-xs-6">
                             <h4>Email</h4>
-                            <a href="mailto:hrnaltun44@gmail.com" target="_blank">hrnaltun44@gmail.com</a>
+                            <a href="mailto:<?php echo $fetch_c['email'] ?>" target="_blank"><?php echo $fetch_c['email'] ?></a>
                         </div>
                     </div>
                     
                 </div>
                 <h4>Sosyal Medya</h4>
-                <a a href="" target="_blank" title="Twitter" ><i class="fab fa-twitter-square fa-4x twitter-color"></i> </a>
-                <a a href="https://www.instagram.com/harunamabikmis/" target="_blank" title="Instagram"><i class="fab fa-instagram-square fa-4x instagram-color "></i></a>
-                <a a href="https://github.com/Juluiskane" target="_blank" title="GitHub"><i class="fab fa-github-square fa-4x github-color "></i></a>
-                <a a href="https://www.linkedin.com/in/harun-altun-2482a916a/"  target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-4x linkedin-color "></i></a>
+                <a a href="<?php echo $fetch_c['twitter'] ?>" target="_blank" title="Twitter" ><i class="fab fa-twitter-square fa-4x twitter-color"></i> </a>
+                <a a href="<?php echo $fetch_c['instagram'] ?>" target="_blank" title="Instagram"><i class="fab fa-instagram-square fa-4x instagram-color "></i></a>
+                <a a href="<?php echo $fetch_c['github'] ?>" target="_blank" title="GitHub"><i class="fab fa-github-square fa-4x github-color "></i></a>
+                <a a href="<?php echo $fetch_c['linkedin'] ?>"  target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-4x linkedin-color "></i></a>
                 </form>
             </div>
         </section><!-- /.section-form -->

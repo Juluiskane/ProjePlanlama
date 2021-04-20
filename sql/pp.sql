@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 19 Nis 2021, 23:50:05
+-- Üretim Zamanı: 20 Nis 2021, 08:28:44
 -- Sunucu sürümü: 10.4.17-MariaDB
 -- PHP Sürümü: 8.0.0
 
@@ -39,7 +39,7 @@ CREATE TABLE `about_me` (
 --
 
 INSERT INTO `about_me` (`about_id`, `about_title`, `content`, `cv`) VALUES
-(1, 'Hakkımda', 'İsmim Harun Altun.19 yaşındayım.İnönü Üniversitesinde eğitim görmeye devam ediyorum.Müzik dinlemeyi,oyun oynamayı ve yüzmeyi severim.', '');
+(1, 'Hakkımda', 'İsmim Harun Altun.19 yaşındayım.İnönü Üniversitesinde eğitim görmeye devam ediyorum.Müzik dinlemeyi,oyun oynamayı ve yüzmeyi severim.\r\n\r\n', 'haftalık plan - Kopya.doc');
 
 -- --------------------------------------------------------
 
@@ -50,9 +50,10 @@ INSERT INTO `about_me` (`about_id`, `about_title`, `content`, `cv`) VALUES
 CREATE TABLE `contact` (
   `contact_id` int(11) NOT NULL,
   `contact_title` varchar(50) NOT NULL,
-  `location` varchar(100) NOT NULL,
+  `locationn` varchar(100) NOT NULL,
+  `location_link` varchar(250) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `gsm` int(11) NOT NULL,
+  `gsm` varchar(13) NOT NULL,
   `twitter` varchar(250) NOT NULL,
   `instagram` varchar(250) NOT NULL,
   `github` varchar(250) NOT NULL,
@@ -63,8 +64,8 @@ CREATE TABLE `contact` (
 -- Tablo döküm verisi `contact`
 --
 
-INSERT INTO `contact` (`contact_id`, `contact_title`, `location`, `email`, `gsm`, `twitter`, `instagram`, `github`, `linkedin`) VALUES
-(1, 'İLETİŞİM', 'Küçükçekmece,İstanbul', 'hrnaltun44@gmail.com', 0, '', 'https://www.instagram.com/harunamabikmis/', 'https://github.com/Juluiskane', 'https://www.linkedin.com/in/harun-altun-2482a916a/');
+INSERT INTO `contact` (`contact_id`, `contact_title`, `locationn`, `location_link`, `email`, `gsm`, `twitter`, `instagram`, `github`, `linkedin`) VALUES
+(1, 'İLETİŞİM', 'Küçükçekmece,İstanbul', 'https://www.google.com/maps/place/Küçükçekmece%2Fİstanbul/data=!4m2!3m1!1s0x14caa4102814e62d:0xf17358ce73944614?sa=X&ved=2ahUKEwj0u6zH2MbvAhU_DmMBHTRtBiEQ8gEwPHoECCQQAQ', 'hrnaltun44@gmail.com', '+905549591150', 'https://twitter.com/Akrabadankacin', 'https://www.instagram.com/harunamabikmis/', 'https://github.com/Juluiskane', 'https://www.linkedin.com/in/harun-altun-2482a916a/');
 
 -- --------------------------------------------------------
 
@@ -75,14 +76,14 @@ INSERT INTO `contact` (`contact_id`, `contact_title`, `location`, `email`, `gsm`
 CREATE TABLE `site_settings` (
   `settings_id` int(11) NOT NULL,
   `site_title` varchar(50) NOT NULL,
-  `title` varchar(50) NOT NULL
+  `namee` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `site_settings`
 --
 
-INSERT INTO `site_settings` (`settings_id`, `site_title`, `title`) VALUES
+INSERT INTO `site_settings` (`settings_id`, `site_title`, `namee`) VALUES
 (1, 'Harun Altun', 'Harun Altun');
 
 -- --------------------------------------------------------
@@ -177,19 +178,19 @@ ALTER TABLE `user`
 -- Tablo için AUTO_INCREMENT değeri `about_me`
 --
 ALTER TABLE `about_me`
-  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `site_settings`
 --
 ALTER TABLE `site_settings`
-  MODIFY `settings_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `settings_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `skills`

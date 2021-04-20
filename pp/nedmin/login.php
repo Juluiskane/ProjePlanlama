@@ -13,14 +13,13 @@ include 'connect.php';
     <link rel="stylesheet" href="./build/css/custom.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Bootstrap -->
-<link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="./vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
     <link href="./vendors/animate.css/animate.min.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="./build/css/custom.min.css" rel="stylesheet">
     <style>
@@ -39,7 +38,6 @@ include 'connect.php';
         </div>
         <form method="POST"action="./process.php">
         <?php if(@$_GET['status'] == 'ok'){?>
-
             <div class="alert alert-success alert-dismissible fade in" role="alert"  style="width: 325px; margin-top: 10px; margin-left: 14px;
         margin-right: 60px;">
                     <strong>Tebrikler
@@ -49,7 +47,7 @@ include 'connect.php';
         </div>
             
             
-
+            
         <?php } elseif(@$_GET['login'] == 'no'){ ?>
             
             <div class="alert alert-danger alert-dismissible fade in" role="alert"  style="width: 325px; margin-top: 10px; margin-left: 14px;
@@ -58,7 +56,6 @@ include 'connect.php';
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close" ><span aria-hidden="true">×</span>
                     </button>
         </div>
-
         <?php } elseif(@$_GET['logout'] == 'ok'){ ?>
             
             <div class="alert alert-warning alert-dismissible fade in" role="alert"  style="width: 325px; margin-top: 10px; margin-left: 14px;
@@ -75,19 +72,15 @@ include 'connect.php';
                 </div>
                 <input id="username" name="user_name" placeholder="Kullanıcı Adı" type="text" required class="validate" autocomplete="off">
             </div>
-
             <div class="clearfix"></div>
-
             <div class="input">
                 <div class="input-addon">
                     <i class="material-icons">vpn_key</i>
                 </div>
                 <input id="password" name="password" placeholder="Şifre" type="password" required class="validate" autocomplete="off">
             </div>
-
         <br>
         <br>
-
             <input type="submit" name="login" value="Giriş Yap" />
         </form>
         <?php $control = $db->prepare("SELECT * FROM user ");
@@ -98,12 +91,8 @@ include 'connect.php';
             
             <a href="register.php"><button id="register-link">Kayıt Ol</button></a>
         </div>
-
         <?php } ?>
     </div>
-
-    
-
 </body>
 <!-- jQuery -->
 <script src="./vendors/jquery/dist/jquery.min.js"></script>

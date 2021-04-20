@@ -147,3 +147,135 @@ if(isset($_POST['update_skills'])){
         header("Location: skill.php?update=no");
     }
 }
+//insert about 
+if(isset($_POST['insert_about'])){
+    $about_title = $_POST['about_title'];
+    $content = $_POST['content'];
+    $cv = $_POST['cv'];
+    
+    $insert_about = $db -> prepare("INSERT INTO about_me SET
+    about_title ='$about_title',
+    content= '$content',
+    cv='$cv'
+    ");
+    $insert_a=$insert_about -> execute();
+    if($insert_a){
+        header("Location: about_us.php?insert_a=ok");
+    }else{
+        header("Location: about_us.php?insert_a=no");
+    }
+}
+
+//about update
+if(isset($_POST['update_about'])){
+    $about_title = $_POST['about_title'];
+    $content = $_POST['content'];
+    $cv = $_POST['cv'];
+
+    $update_about = $db ->prepare("UPDATE about_me SET
+    about_title ='$about_title',
+    content= '$content',
+    cv='$cv'
+    ");
+    $update_a=$update_about -> execute();
+    if($update_a){
+        header("Location: about_us.php?update_a=ok");
+    }else{
+        header("Location: about_us.php?update_a=no");
+    }
+}
+
+// insert contact
+if(isset($_POST['insert_contact'])){
+    $contact_title = $_POST['contact_title'];
+    $locationn = $_POST['locationn'];
+    $location_link =$_POST['location_link'];
+    $email = $_POST['email'];
+    $gsm = $_POST['gsm'];
+    $twitter = $_POST['twitter'];
+    $instagram = $_POST['instagram'];
+    $github = $_POST['github'];
+    $linkedin = $_POST['linkedin'];
+    
+    $insert_contact = $db -> prepare("INSERT INTO contact SET
+    contact_title ='$contact_title',
+    locationn ='$locationn',
+    location_link='$location_link',
+    email ='$email',
+    gsm ='$gsm',
+    twitter ='$twitter',
+    instagram ='$instagram',
+    github ='$github',
+    linkedin ='$linkedin'
+    ");
+    $insert_c=$insert_contact -> execute();
+    if($insert_c){
+        header("Location: contact.php?insert_c=ok");
+    }else{
+        header("Location: contact.php?insert_c=no");
+    }
+}
+//update contact
+if(isset($_POST['update_contact'])){
+    $contact_title = $_POST['contact_title'];
+    $locationn = $_POST['locationn'];
+    $location_link =$_POST['location_link'];
+    $email = $_POST['email'];
+    $gsm = $_POST['gsm'];
+    $twitter = $_POST['twitter'];
+    $instagram = $_POST['instagram'];
+    $github = $_POST['github'];
+    $linkedin = $_POST['linkedin'];
+    
+    $update_contact = $db -> prepare("UPDATE contact SET
+    contact_title ='$contact_title',
+    locationn ='$locationn',
+    location_link='$location_link',
+    email ='$email',
+    gsm ='$gsm',
+    twitter ='$twitter',
+    instagram ='$instagram',
+    github ='$github',
+    linkedin ='$linkedin'
+    ");
+    $update_c=$update_contact -> execute();
+    if($update_c){
+        header("Location: contact.php?update_c=ok");
+    }else{
+        header("Location: contact.php?update_c=no");
+    }
+}
+//insert settings
+if(isset($_POST['insert_settings'])){
+    $site_title = $_POST['site_title'];
+    $namee = $_POST['name'];
+    
+    $insert_settings = $db -> prepare("INSERT INTO site_settings SET
+    site_title ='$site_title',
+    namee= '$namee'
+    
+    ");
+    $insert_set=$insert_settings -> execute();
+    if($insert_set){
+        header("Location: settings.php?insert_set=ok");
+    }else{
+        header("Location: settings.php?insert_set=no");
+    }
+}
+//update settings
+if(isset($_POST['update_settings'])){
+    $site_title = $_POST['site_title'];
+    $namee = $_POST['namee'];
+    
+    $update_settings = $db -> prepare("UPDATE site_settings SET
+    site_title ='$site_title',
+    namee= '$namee'
+    
+    ");
+    $update_set=$update_settings -> execute();
+    if($update_set){
+        header("Location: settings.php?update_set=ok");
+    }else{
+        header("Location: settings.php?update_set=no");
+    }
+}
