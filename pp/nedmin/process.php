@@ -263,19 +263,31 @@ if(isset($_POST['insert_settings'])){
     }
 }
 //update settings
-if(isset($_POST['update_settings'])){
+
+if (isset($_POST['update_settings'])) {
     $site_title = $_POST['site_title'];
     $namee = $_POST['namee'];
-    
-    $update_settings = $db -> prepare("UPDATE site_settings SET
-    site_title ='$site_title',
-    namee= '$namee'
-    
-    ");
-    $update_set=$update_settings -> execute();
-    if($update_set){
+    $password = $_POST['password'];
+    $password2 = $_POST['password2'];
+
+    if($password == $password2){
+        if($password >= 6){
+            $pass1 = sha1($password);
+            $newpassword = $db -> prepare("UPDATE site_settings SET password='$pass1' ");
+            $updatepass=$newpassword -> execute();
+        }
+    }
+    $update_settings = $db->prepare("UPDATE site_settings SET 
+            site_title ='$site_title',
+            namee= '$namee'
+            
+            WHERE settings_id=1
+            ");
+    $update_set = $update_settings->execute();
+
+    if ($update_set and $updatepass) {
         header("Location: settings.php?update_set=ok");
-    }else{
+    } else {
         header("Location: settings.php?update_set=no");
     }
 }
