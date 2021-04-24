@@ -271,7 +271,7 @@ if (isset($_POST['update_settings'])) {
     $password2 = $_POST['password2'];
 
     if($password == $password2){
-        if($password >= 6){
+        if(strlen($password) >= 6){
             $pass1 = sha1($password);
             $newpassword = $db -> prepare("UPDATE site_settings SET password='$pass1' ");
             $updatepass=$newpassword -> execute();
