@@ -31,7 +31,7 @@ if (isset($_POST['signup'])) {
                 $insert = $admin_signup->execute();
 
                 if ($insert) {
-                   // echo 'başarılı';
+                    // echo 'başarılı';
                     header("Location: login.php?status=ok&user_name=$user_name");
                 } else {
                     //echo 'başarısız';
@@ -56,22 +56,21 @@ if (isset($_POST['login'])) {
     $pass = sha1($_POST['password']);
 
     $login = $db->prepare("SELECT * FROM user WHERE user_name='$user_name' and password='$pass'");
-    $login ->execute();
+    $login->execute();
 
-    $count = $login -> rowCount();
+    $count = $login->rowCount();
 
-    if($count == 1){
+    if ($count == 1) {
         $_SESSION['user_name'] = $user_name;
         header("Location: index.php");
-    }else{
+    } else {
         header("Location: login.php?login=no");
     }
-    
 }
 
 //?update && insert
 // skill insert
-if(isset($_POST['insert_skills'])){
+if (isset($_POST['insert_skills'])) {
     $skill_title = $_POST['skill_title'];
     $first_skill = $_POST['first_skill'];
     $second_skill = $_POST['second_skill'];
@@ -86,7 +85,7 @@ if(isset($_POST['insert_skills'])){
     $fifth_counter = $_POST['fifth_counter'];
     $sixth_counter = $_POST['sixth_counter'];
 
-    $insert_skill = $db -> prepare("INSERT INTO skills SET
+    $insert_skill = $db->prepare("INSERT INTO skills SET
     skill_title='$skill_title',
     first_skill ='$first_skill',
     second_skill ='$second_skill',
@@ -101,16 +100,16 @@ if(isset($_POST['insert_skills'])){
     fifth_counter ='$fifth_counter',
     sixth_counter ='$sixth_counter'
     ");
-    $insert=$insert_skill -> execute();
-    if($insert){
+    $insert = $insert_skill->execute();
+    if ($insert) {
         header("Location: skill.php?insert=ok");
-    }else{
+    } else {
         header("Location: skill.php?insert=no");
     }
 }
 
 //skill update
-if(isset($_POST['update_skills'])){
+if (isset($_POST['update_skills'])) {
     $skill_title = $_POST['skill_title'];
     $first_skill = $_POST['first_skill'];
     $second_skill = $_POST['second_skill'];
@@ -125,7 +124,7 @@ if(isset($_POST['update_skills'])){
     $fifth_counter = $_POST['fifth_counter'];
     $sixth_counter = $_POST['sixth_counter'];
 
-    $update_skill = $db -> prepare("UPDATE skills SET
+    $update_skill = $db->prepare("UPDATE skills SET
         skill_title='$skill_title',
         first_skill ='$first_skill',
         second_skill ='$second_skill',
@@ -140,64 +139,64 @@ if(isset($_POST['update_skills'])){
         fifth_counter ='$fifth_counter',
         sixth_counter ='$sixth_counter' WHERE skill_id=1     
     ");
-    $update=$update_skill -> execute();
-    if($update){
+    $update = $update_skill->execute();
+    if ($update) {
         header("Location: skill.php?update=ok");
-    }else{
+    } else {
         header("Location: skill.php?update=no");
     }
 }
 //insert about 
-if(isset($_POST['insert_about'])){
+if (isset($_POST['insert_about'])) {
     $about_title = $_POST['about_title'];
     $content = $_POST['content'];
     $cv = $_POST['cv'];
-    
-    $insert_about = $db -> prepare("INSERT INTO about_me SET
+
+    $insert_about = $db->prepare("INSERT INTO about_me SET
     about_title ='$about_title',
     content= '$content',
     cv='$cv'
     ");
-    $insert_a=$insert_about -> execute();
-    if($insert_a){
+    $insert_a = $insert_about->execute();
+    if ($insert_a) {
         header("Location: about_us.php?insert_a=ok");
-    }else{
+    } else {
         header("Location: about_us.php?insert_a=no");
     }
 }
 
 //about update
-if(isset($_POST['update_about'])){
+if (isset($_POST['update_about'])) {
     $about_title = $_POST['about_title'];
     $content = $_POST['content'];
     $cv = $_POST['cv'];
 
-    $update_about = $db ->prepare("UPDATE about_me SET
+    $update_about = $db->prepare("UPDATE about_me SET
     about_title ='$about_title',
     content= '$content',
-    cv='$cv'
+    cv='$cv' WHERE about_id=1
     ");
-    $update_a=$update_about -> execute();
-    if($update_a){
+    $update_a = $update_about->execute();
+    if ($update_a) {
         header("Location: about_us.php?update_a=ok");
-    }else{
+    } else {
         header("Location: about_us.php?update_a=no");
     }
 }
 
 // insert contact
-if(isset($_POST['insert_contact'])){
+if (isset($_POST['insert_contact'])) {
     $contact_title = $_POST['contact_title'];
     $locationn = $_POST['locationn'];
-    $location_link =$_POST['location_link'];
+    $location_link = $_POST['location_link'];
     $email = $_POST['email'];
     $gsm = $_POST['gsm'];
     $twitter = $_POST['twitter'];
     $instagram = $_POST['instagram'];
     $github = $_POST['github'];
     $linkedin = $_POST['linkedin'];
-    
-    $insert_contact = $db -> prepare("INSERT INTO contact SET
+
+    $insert_contact = $db->prepare("INSERT INTO contact SET
     contact_title ='$contact_title',
     locationn ='$locationn',
     location_link='$location_link',
@@ -208,26 +207,26 @@ if(isset($_POST['insert_contact'])){
     github ='$github',
     linkedin ='$linkedin'
     ");
-    $insert_c=$insert_contact -> execute();
-    if($insert_c){
+    $insert_c = $insert_contact->execute();
+    if ($insert_c) {
         header("Location: contact.php?insert_c=ok");
-    }else{
+    } else {
         header("Location: contact.php?insert_c=no");
     }
 }
 //update contact
-if(isset($_POST['update_contact'])){
+if (isset($_POST['update_contact'])) {
     $contact_title = $_POST['contact_title'];
     $locationn = $_POST['locationn'];
-    $location_link =$_POST['location_link'];
+    $location_link = $_POST['location_link'];
     $email = $_POST['email'];
     $gsm = $_POST['gsm'];
     $twitter = $_POST['twitter'];
     $instagram = $_POST['instagram'];
     $github = $_POST['github'];
     $linkedin = $_POST['linkedin'];
-    
-    $update_contact = $db -> prepare("UPDATE contact SET
+
+    $update_contact = $db->prepare("UPDATE contact SET
     contact_title ='$contact_title',
     locationn ='$locationn',
     location_link='$location_link',
@@ -236,45 +235,55 @@ if(isset($_POST['update_contact'])){
     twitter ='$twitter',
     instagram ='$instagram',
     github ='$github',
-    linkedin ='$linkedin'
+    linkedin ='$linkedin' WHERE contact_id=1
     ");
-    $update_c=$update_contact -> execute();
-    if($update_c){
+    $update_c = $update_contact->execute();
+    if ($update_c) {
         header("Location: contact.php?update_c=ok");
-    }else{
+    } else {
         header("Location: contact.php?update_c=no");
     }
 }
 //insert settings
-if(isset($_POST['insert_settings'])){
+if (isset($_POST['insert_settings'])) {
     $site_title = $_POST['site_title'];
     $namee = $_POST['name'];
-    
-    $insert_settings = $db -> prepare("INSERT INTO site_settings SET
+
+    $insert_settings = $db->prepare("INSERT INTO site_settings SET
     site_title ='$site_title',
     namee= '$namee'
     
     ");
-    $insert_set=$insert_settings -> execute();
-    if($insert_set){
+    $insert_set = $insert_settings->execute();
+    if ($insert_set) {
         header("Location: settings.php?insert_set=ok");
-    }else{
+    } else {
         header("Location: settings.php?insert_set=no");
     }
 }
-//update settings
 
+//update settings
 if (isset($_POST['update_settings'])) {
     $site_title = $_POST['site_title'];
     $namee = $_POST['namee'];
     $password = $_POST['password'];
-    $password2 = $_POST['password2'];
+    $newpassword = $_POST['newpassword'];
+    $newpassword2 = $_POST['newpassword2'];
+    $pass2 = sha1($password);
 
-    if($password == $password2){
-        if(strlen($password) >= 6){
-            $pass1 = sha1($password);
-            $newpassword = $db -> prepare("UPDATE site_settings SET password='$pass1' ");
-            $updatepass=$newpassword -> execute();
+    $chancepass = $db->prepare("SELECT * FROM user WHERE user_id=1 AND password='$pass2'");
+    $chancepass->execute(); 
+    $countt = $chancepass->rowCount();
+    if ($countt == 1) {
+        $pass3=sha1($newpassword);
+        if(!($pass3==$pass2)){
+            if ($newpassword == $newpassword2) {
+                if (strlen($newpassword) >= 6) {
+                $pass1 = sha1($newpassword);
+                $admin_newpassword = $db->prepare("UPDATE user SET password='$pass1' ");
+                $updatepass = $admin_newpassword->execute();
+                }
+            }
         }
     }
     $update_settings = $db->prepare("UPDATE site_settings SET 
@@ -286,7 +295,7 @@ if (isset($_POST['update_settings'])) {
     $update_set = $update_settings->execute();
 
     if ($update_set and $updatepass) {
-        header("Location: settings.php?update_set=ok");
+        header("Location: logout.php");
     } else {
         header("Location: settings.php?update_set=no");
     }

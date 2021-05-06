@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Nis 2021, 08:28:44
+-- Üretim Zamanı: 06 May 2021, 20:20:04
 -- Sunucu sürümü: 10.4.17-MariaDB
 -- PHP Sürümü: 8.0.0
 
@@ -39,7 +39,7 @@ CREATE TABLE `about_me` (
 --
 
 INSERT INTO `about_me` (`about_id`, `about_title`, `content`, `cv`) VALUES
-(1, 'Hakkımda', 'İsmim Harun Altun.19 yaşındayım.İnönü Üniversitesinde eğitim görmeye devam ediyorum.Müzik dinlemeyi,oyun oynamayı ve yüzmeyi severim.\r\n\r\n', 'haftalık plan - Kopya.doc');
+(1, 'Hakkımda', 'İsmim Harun Altun.19 yaşındayım.İnönü Üniversitesinde eğitim görmeye devam ediyorum.Müzik dinlemeyi,oyun oynamayı ve yüzmeyi severim.\r\n', 'resim_2021-05-06_162512.png');
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,7 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`skill_id`, `skill_title`, `first_skill`, `second_skill`, `third_skill`, `fourth_skill`, `fifth_skill`, `sixth_skill`, `first_counter`, `second_counter`, `third_counter`, `fourth_counter`, `fifth_counter`, `sixth_counter`) VALUES
-(1, 'Yetenekler', 'Html/Css', 'C', 'Javascript', 'Problem  çözme', 'Php', 'Sabır', '1', '10', '1', '65', '1', '85');
+(1, 'Yetenekler', 'Html/Css', 'Cs', 'Javascript', 'Problem  çözme', 'Php', 'Sabır', '10', '10', '1', '65', '1', '85');
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `email`, `password`) VALUES
-(16, 'Aaron', 'hrnaltun44@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b');
+(1, 'Aaron', 'hrnaltun44@gmail.com', '20eabe5d64b0e216796e834f52d61fd0b70332fc');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
