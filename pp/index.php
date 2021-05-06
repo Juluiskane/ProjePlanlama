@@ -130,12 +130,14 @@ include './nedmin/connect.php';
                 </div>
             </div>
         </section><!-- /.secton-about -->
+        
         <section class="site-section section-skills" id="skills">
             <div class="container">
                 <div class="text-center">
                     <h3><?php echo $fetch_s['skill_title'] ?></h3>
                     <img src="assets/img/lines.svg" class="img-lines" alt="lines">
                 </div>
+                
                 <div class="row">
                     <div class="col-md-4">
                         <div class="skill">

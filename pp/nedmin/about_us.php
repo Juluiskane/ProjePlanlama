@@ -49,6 +49,7 @@ $fetch = $fetch_about->fetch(PDO::FETCH_ASSOC);
               </button>
             </div>
           <?php } ?>
+          
             <form class="form-horizontal form-label-left" action="process.php" method="POST">
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Sayfa başlığı
