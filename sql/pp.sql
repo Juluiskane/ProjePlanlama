@@ -114,7 +114,7 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`skill_id`, `skill_title`, `first_skill`, `second_skill`, `third_skill`, `fourth_skill`, `fifth_skill`, `sixth_skill`, `first_counter`, `second_counter`, `third_counter`, `fourth_counter`, `fifth_counter`, `sixth_counter`) VALUES
-(1, 'Yetenekler', 'Html/Css', 'Cs', 'Javascript', 'Problem  çözme', 'Php', 'Sabır', '10', '10', '1', '65', '1', '85');
+(1, 'Yetenekler', 'Html/Css', 'C', 'Javascript', 'Problem  çözme', 'Php', 'Sabır', '10', '10', '1', '65', '1', '85');
 
 -- --------------------------------------------------------
 
