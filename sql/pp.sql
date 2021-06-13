@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 06 May 2021, 20:20:04
+-- Üretim Zamanı: 13 Haz 2021, 07:49:24
 -- Sunucu sürümü: 10.4.17-MariaDB
 -- PHP Sürümü: 8.0.0
 
@@ -114,7 +114,7 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`skill_id`, `skill_title`, `first_skill`, `second_skill`, `third_skill`, `fourth_skill`, `fifth_skill`, `sixth_skill`, `first_counter`, `second_counter`, `third_counter`, `fourth_counter`, `fifth_counter`, `sixth_counter`) VALUES
-(1, 'Yetenekler', 'Html/Css', 'Cs', 'Javascript', 'Problem  çözme', 'Php', 'Sabır', '10', '10', '1', '65', '1', '85');
+(1, 'Yetenekler', 'Html/Css', 'C', 'Javascript', 'Problem  çözme', 'Php', 'Sabır', '10', '10', '1', '65', '1', '85');
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `email`, `password`) VALUES
-(1, 'Aaron', 'hrnaltun44@gmail.com', '20eabe5d64b0e216796e834f52d61fd0b70332fc');
+(1, 'admin', 'hrnaltun44@gmail.com', '48058e0c99bf7d689ce71c360699a14ce2f99774');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
